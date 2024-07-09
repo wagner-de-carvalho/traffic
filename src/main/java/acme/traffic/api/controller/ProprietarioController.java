@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import acme.traffic.domain.model.Proprietario;
+import acme.traffic.domain.model.RegistroProprietarioService;
 import acme.traffic.domain.repository.ProprietarioRepository;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class ProprietarioController {
 
     private final ProprietarioRepository proprietarioRepository;
+    private final RegistroProprietarioService registroService;
 
     @GetMapping
     public List<Proprietario> listar() {
@@ -44,7 +46,7 @@ public class ProprietarioController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Proprietario adicionar(@Valid @RequestBody Proprietario proprietario) {
-        return proprietarioRepository.save(proprietario);
+        return registroService.gravar(proprietario);
     }
 
     @PutMapping("/{proprietarioId}")
@@ -62,7 +64,7 @@ public class ProprietarioController {
     @DeleteMapping("/{proprietarioId}")
     public ResponseEntity<Void> remover(@PathVariable Long proprietarioId) {
         if (proprietarioRepository.existsById(proprietarioId)) {
-            proprietarioRepository.deleteById(proprietarioId);
+            registroService.excluir(proprietarioId);
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
