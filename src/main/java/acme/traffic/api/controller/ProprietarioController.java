@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import acme.traffic.domain.model.Proprietario;
 import acme.traffic.domain.repository.ProprietarioRepository;
+import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 
@@ -42,7 +43,7 @@ public class ProprietarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Proprietario adicionar(@RequestBody Proprietario proprietario) {
+    public Proprietario adicionar(@Valid @RequestBody Proprietario proprietario) {
         return proprietarioRepository.save(proprietario);
     }
 
