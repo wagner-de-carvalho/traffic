@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import acme.traffic.domain.exception.NegocioException;
 import acme.traffic.domain.model.Proprietario;
+import acme.traffic.domain.model.Veiculo;
 import acme.traffic.domain.repository.ProprietarioRepository;
 import lombok.AllArgsConstructor;
 
@@ -29,5 +30,12 @@ public class RegistroProprietarioService {
     @Transactional
     public void excluir(Long proprietarioId) {
         proprietarioRepository.deleteById(proprietarioId);
+    }
+
+    public Proprietario buscar(Long proprietarioId) {
+        return proprietarioRepository.findById(
+                proprietarioId)
+                .orElseThrow(() -> new NegocioException("Poprietário não encontrado"));
+
     }
 }
