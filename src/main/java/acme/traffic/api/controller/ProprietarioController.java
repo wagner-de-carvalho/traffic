@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import acme.traffic.domain.exception.NegocioException;
 import acme.traffic.domain.model.Proprietario;
-import acme.traffic.domain.model.RegistroProprietarioService;
 import acme.traffic.domain.repository.ProprietarioRepository;
+import acme.traffic.domain.service.RegistroProprietarioService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 

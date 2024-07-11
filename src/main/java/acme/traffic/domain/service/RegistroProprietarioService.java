@@ -1,10 +1,10 @@
-package acme.traffic.domain.model;
+package acme.traffic.domain.service;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import acme.traffic.domain.exception.NegocioException;
+import acme.traffic.domain.model.Proprietario;
 import acme.traffic.domain.repository.ProprietarioRepository;
 import lombok.AllArgsConstructor;
 
