@@ -15,6 +15,7 @@ import acme.traffic.domain.exception.NegocioException;
 import acme.traffic.domain.model.Veiculo;
 import acme.traffic.domain.repository.VeiculoRepository;
 import acme.traffic.domain.service.RegistroVeiculoService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -38,7 +39,7 @@ public class VeiculoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Veiculo cadastrar(@RequestBody Veiculo veiculo) {
+    public Veiculo cadastrar(@Valid @RequestBody Veiculo veiculo) {
         return registroVeiculoService.cadastrar(veiculo);
     }
 
