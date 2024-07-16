@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 import acme.traffic.domain.exception.NegocioException;
 import acme.traffic.domain.model.StatusVeiculo;
 import acme.traffic.domain.model.Veiculo;
-import acme.traffic.domain.repository.ProprietarioRepository;
 import acme.traffic.domain.repository.VeiculoRepository;
 import lombok.AllArgsConstructor;
 
