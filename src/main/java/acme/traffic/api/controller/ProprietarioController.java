@@ -2,26 +2,23 @@ package acme.traffic.api.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-
-import acme.traffic.domain.exception.NegocioException;
-import acme.traffic.domain.model.Proprietario;
-import acme.traffic.domain.repository.ProprietarioRepository;
-import acme.traffic.domain.service.RegistroProprietarioService;
-import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import acme.traffic.domain.model.Proprietario;
+import acme.traffic.domain.repository.ProprietarioRepository;
+import acme.traffic.domain.service.RegistroProprietarioService;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RequestMapping("/proprietarios")
@@ -70,8 +67,4 @@ public class ProprietarioController {
         return ResponseEntity.notFound().build();
     }
 
-    @ExceptionHandler(NegocioException.class)
-    public ResponseEntity<String> capturar(NegocioException e) {
-        return ResponseEntity.badRequest().body(e.getMessage());
-    }
 }
