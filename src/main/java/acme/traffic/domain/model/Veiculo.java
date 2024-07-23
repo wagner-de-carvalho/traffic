@@ -1,6 +1,6 @@
 package acme.traffic.domain.model;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -54,8 +54,8 @@ public class Veiculo {
     private StatusVeiculo status;
 
     @JsonProperty(access = Access.READ_ONLY)
-    private LocalDateTime dataCadastro;
+    private OffsetDateTime dataCadastro;
 
     @JsonProperty(access = Access.READ_ONLY)
-    private LocalDateTime dataApreensao;
+    private OffsetDateTime dataApreensao;
 }
