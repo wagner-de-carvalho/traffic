@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 import acme.traffic.api.model.VeiculoModel;
+import acme.traffic.api.model.input.VeiculoInput;
 import acme.traffic.domain.model.Veiculo;
 import lombok.AllArgsConstructor;
 
@@ -13,6 +14,10 @@ import lombok.AllArgsConstructor;
 @Component
 public class VeiculoAssembler {
     private final ModelMapper modelMapper;
+
+    public Veiculo toEntity(VeiculoInput veiculoInput) {
+        return modelMapper.map(veiculoInput, Veiculo.class);
+    }
 
     public VeiculoModel toModel(Veiculo veiculo) {
         return modelMapper.map(veiculo, VeiculoModel.class);
