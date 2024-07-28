@@ -1,6 +1,8 @@
 package acme.traffic.domain.model;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -9,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +35,9 @@ public class Veiculo {
 
     @Enumerated(EnumType.STRING)
     private StatusVeiculo status;
+
+    @OneToMany(mappedBy = "veiculo")
+    private List<Autuacao> autuacoes = new ArrayList<>();
 
     private OffsetDateTime dataCadastro;
     private OffsetDateTime dataApreensao;
