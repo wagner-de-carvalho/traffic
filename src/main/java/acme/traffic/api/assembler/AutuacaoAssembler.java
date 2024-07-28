@@ -1,8 +1,6 @@
 package acme.traffic.api.assembler;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
