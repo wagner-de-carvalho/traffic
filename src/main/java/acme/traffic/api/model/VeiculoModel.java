@@ -2,6 +2,7 @@ package acme.traffic.api.model;
 
 import java.time.OffsetDateTime;
 
+import acme.traffic.domain.model.StatusVeiculo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,7 @@ public class VeiculoModel {
     private String marca;
     private String modelo;
     private String placa;
+    private StatusVeiculo status;
     private OffsetDateTime dataCadastro;
     private OffsetDateTime dataApreensao;
 }

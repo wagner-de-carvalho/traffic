@@ -1,7 +1,5 @@
 package acme.traffic.domain.service;
 
-import java.time.OffsetDateTime;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,7 +9,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Service
 public class RegistroAutuacaoService {
-    private RegistroVeiculoService registroVeiculoService;
+    private final RegistroVeiculoService registroVeiculoService;
 
     @Transactional
     public Autuacao registrar(Long veiculoId, Autuacao novaAutuacao) {
